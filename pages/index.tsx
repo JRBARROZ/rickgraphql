@@ -15,6 +15,7 @@ import Card from "../components/card";
 interface IHomeProps {
   charactersData: ICharacter;
 }
+const ref = React.useRef
 const Home = ({ charactersData }: IHomeProps) => {
   const [name, setName] = React.useState<string | undefined>();
   const [page, setPage] = React.useState<number>(1);

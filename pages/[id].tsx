@@ -86,6 +86,7 @@ function Character() {
                   {data.character.episode.map((ep: IEpisode) => {
                     return (
                       <div
+                        key={ep.name}
                         className={`p-4 mb-10 bg-white min-w-max rounded-md bg-opacity-5 transition-all  hover:bg-opacity-10 hover:cursor-pointer  gap-2 flex flex-col`}
                       >
                         <p className=" font-bold">{ep.name}</p>

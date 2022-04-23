@@ -22,8 +22,9 @@ function Card({
   imgY = 200,
 }: ICardProps) {
   return (
-    <Link href={"/" + id}>
+    <Link href={"/" + id} passHref>
       <div
+      
         className={`p-4 bg-white rounded-md bg-opacity-5 transition-all  hover:bg-opacity-10 hover:cursor-pointer  gap-2 flex flex-col card`}
       >
         <Image
@@ -31,6 +32,7 @@ function Card({
           height={imgY}
           className="rounded-md"
           src={img}
+          alt={name}
         ></Image>
         <p className=" font-bold">{name}</p>
         <div className=" flex gap-2">
