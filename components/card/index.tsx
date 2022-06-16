@@ -24,6 +24,7 @@ function Card({
   return (
     <Link href={"/" + id} passHref>
       <div
+      
         className={`p-4 bg-white rounded-md bg-opacity-5 transition-all  hover:bg-opacity-10 hover:cursor-pointer  gap-2 flex flex-col card`}
       >
         <Image
