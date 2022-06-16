@@ -18,6 +18,7 @@ interface IHomeProps {
 const Home = ({ charactersData }: IHomeProps) => {
   const [name, setName] = React.useState<string | undefined>();
   const [page, setPage] = React.useState<number>(1);
+  const searchRef = React.useRef<any>();
   const [totalPages, setTotalPages] = React.useState<number>(
     charactersData.characters?.info.pages
   );
@@ -36,11 +37,12 @@ const Home = ({ charactersData }: IHomeProps) => {
       },
     });
   }
+  searchRef.current = handleNameSearch;
   React.useEffect(() => {
     setPage(1);
     const timeout = setTimeout(() => {
       if (typeof name === "string") {
-        handleNameSearch();
+        searchRef.current();
       }
     }, 1000);
     return () => {

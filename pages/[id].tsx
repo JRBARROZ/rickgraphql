@@ -1,5 +1,6 @@
 import { gql, useQuery } from "@apollo/client";
 import { ArrowLeftIcon, GlobeIcon, HeartIcon } from "@heroicons/react/solid";
+import Head from "next/head";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import React from "react";
@@ -38,12 +39,14 @@ function Character() {
   );
   return (
     <div className="mt-20 max-w-6xl w-full text-white m-auto gap-4 p-4">
-      <Link href={"/"}>
+      <Link href={"/"} passHref>
         <button className="p-2 mb-10 bg-white rounded-md bg-opacity-10 hover:bg-opacity-20 transition-all flex gap-2 items-center mb-4">
           <ArrowLeftIcon className="w-6" /> {"Go Back to the main page"}
         </button>
       </Link>
-
+      <Head>
+        RickGraphql | Character Page
+      </Head>
       {loading ? (
         "Loading ..."
       ) : (
@@ -86,6 +89,7 @@ function Character() {
                   {data.character.episode.map((ep: IEpisode) => {
                     return (
                       <div
+                        key={ep.name}
                         className={`p-4 mb-10 bg-white min-w-max rounded-md bg-opacity-5 transition-all  hover:bg-opacity-10 hover:cursor-pointer  gap-2 flex flex-col`}
                       >
                         <p className=" font-bold">{ep.name}</p>
